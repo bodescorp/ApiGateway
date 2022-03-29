@@ -9,5 +9,10 @@ app.get('/',(request, response) => {
         resposta: "rodando os Livros"
     });
 });
+app.get('/:id',(request, response) => {
+    return response.json({
+        id: Number(request.params.id)
+    });
+});
 
 app.listen(3002,()=>console.log('Api Books_google na port:3002'));

@@ -1,5 +1,5 @@
 services:
-  - name: comentarios
+  - name: send
     url: http://localhost:3001
   - name: search
     url: http://localhost:3002

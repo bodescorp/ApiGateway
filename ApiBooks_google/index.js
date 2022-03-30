@@ -13,9 +13,9 @@ app.use(express.json())
 //     });
 // });
 app.get('/books',async (request, response) => {
-    const {q} = request.query;
+    const {name_book} = request.body;
     try {
-        const {data} = await api.get(`https://www.googleapis.com/books/v1/volumes?q=${q}&key=${process.env.KEY}`);
+        const {data} = await api.get(`https://www.googleapis.com/books/v1/volumes?q=${name_book}&key=${process.env.KEY}`);
 
         return response.json(data);
     } catch (error) {

@@ -12,13 +12,11 @@ app.use(express.json())
 //         resposta: "rodando os Livros"
 //     });
 // });
-app.get('/livros',async (request, response) => {
+app.get('/books',async (request, response) => {
     const {q} = request.query;
     try {
-        const {data} = await api.get(`https://www.googleapis.com/books/v1/volumes?q=${q}&key=${process.env.KEY}`)
-        // .then(console.log(response)).catch(console.log(response));
-        // ?q=flowers&key=AIzaSyC1nPIwvg4YQMITgfUDJzvPbvVZ47YoziU'
-        
+        const {data} = await api.get(`https://www.googleapis.com/books/v1/volumes?q=${q}&key=${process.env.KEY}`);
+
         return response.json(data);
     } catch (error) {
         return response.json({error});

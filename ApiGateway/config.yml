@@ -1,5 +1,5 @@
 services:
   - name: comentarios
     url: http://localhost:3001
-  - name: books
+  - name: search
     url: http://localhost:3002

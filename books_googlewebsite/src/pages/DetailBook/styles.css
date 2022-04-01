@@ -1,0 +1,35 @@
+.detail-container {
+    width: 100%;
+    max-width: 1120px;
+    height: 100vh;
+    margin: 32px auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail-container header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail-container header span {
+    font-size: 20px;
+    margin-left: 24px;
+}
+
+.detail-container section button {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    margin-right: 16px;
+    background: transparent;
+}
+
+.detail-container section span {
+    font-size: 20px;
+    margin-left: 24px;
+}

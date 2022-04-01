@@ -7,15 +7,23 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json())
 
-// app.get('/',(request, response) => {
-//     return response.json({
-//         resposta: "rodando os Livros"
-//     });
-// });
-app.get('/books',async (request, response) => {
-    const {name_book} = request.body;
+app.get('/books/:idBook',async (request, response) => {
+    const {idBook} = request.params;
     try {
-        const {data} = await api.get(`https://www.googleapis.com/books/v1/volumes?q=${name_book}&key=${process.env.KEY}`);
+        const {data} = await api.get(`https://www.googleapis.com/books/v1/volumes/${idBook}?key=${process.env.KEY}`);
+
+        return response.json(data);
+    } catch (error) {
+        return response.json({error});
+    }
+});
+
+
+app.post('/books',async (request, response) => {
+    const {nameBook} = request.body;
+    const {pages = 0} = request.query;
+    try {
+        const {data} = await api.get(`https://www.googleapis.com/books/v1/volumes?q=${nameBook}&startIndex=${pages}&key=${process.env.KEY}`);
 
         return response.json(data);
     } catch (error) {
